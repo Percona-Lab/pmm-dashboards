@@ -908,7 +908,7 @@
                         }
                     ],
                     "thresholds": "300,3600",
-                    "title": "Current retention period",
+                    "title": "Current retention period of the head block",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [
