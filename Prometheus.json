@@ -274,6 +274,7 @@
                         "#d44a3a"
                     ],
                     "datasource": "Prometheus",
+                    "decimals": 1,
                     "description": "Number of appended samples",
                     "format": "ops",
                     "gauge": {
@@ -330,7 +331,7 @@
                         }
                     ],
                     "thresholds": "0.7,0.8",
-                    "title": "Samples Ingested",
+                    "title": "Samples Ingested in the head block",
                     "type": "singlestat",
                     "valueFontSize": "80%",
                     "valueMaps": [
@@ -1109,6 +1110,7 @@
             "panels": [
                 {
                     "aliasColors": {
+                        "Samples Ingested": "#629e51",
                         "Scrapes Performed": "#6ED0E0"
                     },
                     "bars": false,
@@ -1159,6 +1161,15 @@
                             "legendFormat": "Scrapes Performed",
                             "refId": "B",
                             "step": 60
+                        },
+                        {
+                            "expr": "rate(prometheus_tsdb_head_samples_appended_total[$interval]) or irate(prometheus_tsdb_head_samples_appended_total[5m])",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Samples appended in the head block",
+                            "refId": "A"
                         }
                     ],
                     "thresholds": [],
@@ -3997,7 +4008,7 @@
         ]
     },
     "time": {
-        "from": "now-12h",
+        "from": "now-1h",
         "to": "now"
     },
     "timepicker": {
