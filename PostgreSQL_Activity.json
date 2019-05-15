@@ -1,0 +1,5529 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": false,
+                "iconColor": "#e0752d",
+                "limit": 100,
+                "name": "PMM Annotations",
+                "showIn": 0,
+                "tags": [
+                    "pmm_annotation"
+                ],
+                "type": "tags"
+            },
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": true,
+                "iconColor": "#6ed0e0",
+                "limit": 100,
+                "name": "Annotations & Alerts",
+                "showIn": 0,
+                "tags": [],
+                "type": "dashboard"
+            }
+        ]
+    },
+    "description": "",
+    "editable": true,
+    "gnetId": 3300,
+    "graphTooltip": 1,
+    "id": null,
+    "iteration": 1557924714325,
+    "links": [
+        {
+            "icon": "dashboard",
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "QAN"
+            ],
+            "targetBlank": false,
+            "title": "Query Analytics",
+            "type": "link",
+            "url": "/graph/dashboard/db/_pmm-query-analytics"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "OS"
+            ],
+            "targetBlank": false,
+            "title": "OS",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "MySQL"
+            ],
+            "targetBlank": false,
+            "title": "MySQL",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "MongoDB"
+            ],
+            "targetBlank": false,
+            "title": "MongoDB",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "PostgreSQL"
+            ],
+            "targetBlank": false,
+            "title": "PostgreSQL",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "HA"
+            ],
+            "targetBlank": false,
+            "title": "HA",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "Cloud"
+            ],
+            "targetBlank": false,
+            "title": "Cloud",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "Insight"
+            ],
+            "targetBlank": false,
+            "title": "Insight",
+            "type": "dashboards"
+        },
+        {
+            "asDropdown": true,
+            "includeVars": true,
+            "keepTime": true,
+            "tags": [
+                "PMM"
+            ],
+            "targetBlank": false,
+            "title": "PMM",
+            "type": "dashboards"
+        }
+    ],
+    "panels": [
+        {
+            "content": "<h1><i><font color=#5991A7><b><center>Data for </font><font color=#e68a00>$host</font> <font color=#5991A7> with</font> </font><font color=#e68a00>$interval</font> <font color=#5991A7>resolution</center></b></font></i></h1><br>",
+            "gridPos": {
+                "h": 3,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            },
+            "id": 30,
+            "links": [],
+            "mode": "html",
+            "title": "",
+            "type": "text"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 3
+            },
+            "id": 10075,
+            "panels": [],
+            "title": "Connections",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": true,
+            "colors": [
+                "#d44a3a",
+                "rgba(237, 129, 40, 0.89)",
+                "#299c46"
+            ],
+            "datasource": "Prometheus",
+            "description": "Reports whether PMM Server can connect to the PostgreSQL instance.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 4
+            },
+            "id": 63,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": true
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "pg_up{instance=\"$host\",job=\"postgresql\"}",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "0,1",
+            "title": "Connected",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "NO",
+                    "value": "0"
+                },
+                {
+                    "op": "=",
+                    "text": "YES",
+                    "value": "1"
+                }
+            ],
+            "valueName": "avg"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#d44a3a",
+                "rgba(237, 129, 40, 0.89)",
+                "#299c46"
+            ],
+            "datasource": "Prometheus",
+            "description": "PostgreSQL has been running since this time",
+            "format": "s",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 4
+            },
+            "id": 10097,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "time() - (pg_stat_bgwriter_stats_reset)",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "PostgreSQL Uptime",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Current Active Connections.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 4
+            },
+            "id": 10050,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(max_over_time(pg_stat_activity_count{instance=\"$host\",datname=~\"$db\"}[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Total Connections",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Current Active Connections.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 4
+            },
+            "id": 10071,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(max_over_time(pg_stat_activity_count{instance=\"$host\",datname=~\"$db\",state='active'}[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Active Connections",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Current Idle Connections.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 4
+            },
+            "id": 10051,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(max_over_time(pg_stat_activity_count{instance=\"$host\",datname=~\"$db\",state='idle'}[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Idle Connections",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Current Idle in Transaction Connections.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 4
+            },
+            "id": 10052,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(max_over_time(pg_stat_activity_count{instance=\"$host\",datname=~\"$db\",state='active'}[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Idle in Transactions",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 6
+            },
+            "id": 74,
+            "panels": [],
+            "title": "Queries Overview",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Queries per second within the interval",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 7
+            },
+            "id": 10062,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "repeatDirection": "v",
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "avg(rate(pg_stat_statements_calls[$interval]) or irate(pg_stat_statements_calls[5m]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "count((delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) > 0)",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "QPS",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "format": "ms",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 7
+            },
+            "id": 10106,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "dimensions": {},
+                    "expr": "sum(delta(pg_stat_statements_time_milliseconds[$interval]))/sum(delta(pg_stat_statements_calls[$interval]))",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": false,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "A",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "sum(delta(pg_stat_statements_time_milliseconds[$interval]))",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "B",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "sum(delta(pg_stat_statements_calls[$interval]))",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "C",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                }
+            ],
+            "thresholds": "",
+            "title": "Avg Query Time in ms",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 7
+            },
+            "id": 10108,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "dimensions": {},
+                    "expr": "count((delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) < 10)",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": false,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "A",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "B",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "C",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                }
+            ],
+            "thresholds": "",
+            "title": "Queries with avg time < 10ms",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "No. of queries with average time more than 10ms and less than 1s.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 7
+            },
+            "id": 10109,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "dimensions": {},
+                    "expr": "count((delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) > 10 and \n(delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) < 1000)",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": false,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "A",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "B",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "C",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                }
+            ],
+            "thresholds": "",
+            "title": "Queries >10ms and  <1s",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "No. of queries with average time more than 1 seconds and less than 10 seconds.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 7
+            },
+            "id": 10107,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "dimensions": {},
+                    "expr": "count((delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) > 1000 and (delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) < 10000)",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": false,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "A",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "B",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "C",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                }
+            ],
+            "thresholds": "",
+            "title": "Queries >1s and  <10s",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "No. of queries with average time more than 10 seconds.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 7
+            },
+            "id": 10110,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "dimensions": {},
+                    "expr": "count((delta(pg_stat_statements_time_milliseconds[$interval]) / delta(pg_stat_statements_calls[$interval])) > 10000)",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": false,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "A",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "B",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                },
+                {
+                    "dimensions": {},
+                    "expr": "",
+                    "expression": "",
+                    "format": "time_series",
+                    "hide": true,
+                    "highResolution": false,
+                    "id": "",
+                    "intervalFactor": 1,
+                    "metricName": "",
+                    "namespace": "",
+                    "period": "",
+                    "refId": "C",
+                    "region": "default",
+                    "returnData": false,
+                    "statistics": [
+                        "Average"
+                    ]
+                }
+            ],
+            "thresholds": "",
+            "title": "Queries > 10s",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 9
+            },
+            "id": 10079,
+            "panels": [],
+            "title": "Checkpoint Activity",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 10
+            },
+            "id": 10053,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "pg_stat_bgwriter_checkpoints_req + pg_stat_bgwriter_checkpoints_timed",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Checkpoints",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "format": "ms",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 10
+            },
+            "id": 10083,
+            "interval": null,
+            "links": [],
+            "mappingType": 2,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "pg_stat_bgwriter_checkpoint_write_time/(pg_stat_bgwriter_checkpoints_timed + pg_stat_bgwriter_checkpoints_req)",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "delta(pg_stat_bgwriter_checkpoint_write_time[$interval]) / (delta(pg_stat_bgwriter_checkpoints_timed[$interval]) + delta(pg_stat_bgwriter_checkpoints_req[$interval]))",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Avg. Checkpoint Write Time",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "format": "ms",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 10
+            },
+            "id": 10084,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "delta(pg_stat_bgwriter_checkpoint_sync_time[$interval]) / (delta(pg_stat_bgwriter_checkpoints_timed[$interval]) + delta(pg_stat_bgwriter_checkpoints_req[$interval]))",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "delta(pg_stat_bgwriter_checkpoints_req[$interval])",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Avg. Checkpoint Sync Time",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "format": "bytes",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 10
+            },
+            "id": 10087,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "delta(pg_stat_bgwriter_buffers_backend[$interval]) * 8192",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Buffers Written by Backend",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "format": "bytes",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 10
+            },
+            "id": 10089,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "delta(pg_stat_bgwriter_buffers_checkpoint[$interval]) * 8192",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Buffers Written by Checkpointer",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#d44a3a",
+                "rgba(237, 129, 40, 0.89)",
+                "#299c46"
+            ],
+            "datasource": "Prometheus",
+            "description": "Stats have been reset this time ago",
+            "format": "s",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 10
+            },
+            "id": 10092,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "time() - pg_stat_bgwriter_stats_reset",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Last Stats Reset",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 12
+            },
+            "id": 10112,
+            "panels": [],
+            "title": "Buffers, Cache and IO",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "These are the number of blocks not read from shared buffers",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 13
+            },
+            "id": 10101,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(pg_stat_database_blks_hit{datname=~\"$db\",instance=\"$host\",datname!~\"template.*\"})/\n(sum(pg_stat_database_blks_hit{datname=~\"$db\",instance=\"$host\",datname!~\"template.*\"}) + sum(pg_stat_database_blks_read{datname=~\"$db\",instance=\"$host\",datname!~\"template.*\"}))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Cache Hit Ratio",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 3,
+            "description": "Time spent in writing blocks to disk",
+            "format": "ms",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 13
+            },
+            "id": 10113,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_database_blk_write_time[$interval]))",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Blocks Write Time",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 3,
+            "description": "Time spent in reading blocks from disk",
+            "format": "ms",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 13
+            },
+            "id": 10114,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_database_blk_read_time[$interval]))",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Blocks Read Time",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Time spent in reading blocks from disk",
+            "format": "bytes",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 13
+            },
+            "id": 10115,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_database_temp_bytes[$interval])) * pg_settings_temp_buffers_bytes",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Temp Written",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Number of Shared Blocks Written in this interval",
+            "format": "bytes",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 13
+            },
+            "id": 10117,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_statements_shared_blks_written[$interval]))",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Shared Blocks Written",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Size of Shared Blocks Read in this interval",
+            "format": "bytes",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 13
+            },
+            "id": 10121,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_statements_shared_blks_read[$interval])) * 8192",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Shared Blocks Read",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 15
+            },
+            "id": 10096,
+            "panels": [],
+            "title": "Transactions and Locks",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Transactions per second within the interval",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 16
+            },
+            "id": 10059,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "repeat": null,
+            "repeatDirection": "h",
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(rate(pg_stat_database_xact_commit[$interval]) + rate(pg_stat_database_xact_rollback[$interval])) or \nsum(irate(pg_stat_database_xact_commit[5m]) + irate(pg_stat_database_xact_rollback[5m]))",
+                    "format": "time_series",
+                    "hide": false,
+                    "instant": false,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "TPS",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "avg"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Number of Deadlocks and Conflicts",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 16
+            },
+            "id": 10102,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_database_deadlocks[$interval])) + sum(delta(pg_stat_database_conflicts[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Deadlocks & Conflicts",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Queries cancelled due to Deadlocks or Locks or Tablespace Locks or due to Old snapshot not being available",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 16
+            },
+            "id": 10104,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_database_conflicts_confl_deadlock[$interval])) \n+ sum(delta(pg_stat_database_conflicts_confl_lock[$interval])) \n+ sum(delta(pg_stat_database_conflicts_confl_tablespace[$interval])) \n+ sum(delta(pg_stat_database_conflicts_confl_snapshot[$interval]))",
+                    "format": "time_series",
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": "",
+            "title": "Cancelled Queries",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "N/A",
+                    "value": "null"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Percentage of Index Scans vs Sequence Scans",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 16
+            },
+            "id": 10118,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": "",
+            "title": "Index Scans Perc",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "Number of locks those protects one or more tables against concurrent data changes.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 16
+            },
+            "id": 10128,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_locks_count{mode='sharerowexclusivelock'}[$interval])) \n+ sum(delta(pg_locks_count{mode='share'}[$interval])) \n+ sum(delta(pg_locks_count{mode='shareupdateexclusivelock'}[$interval])) \n+ sum(delta(pg_locks_count{mode='accessexclusivelock'}[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(max_over_time(pg_locks_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(max_over_time(pg_locks_count{mode='sharerowexclusivelock'}[$interval])) \n+ sum(max_over_time(pg_locks_count{mode='shareupdateexclusivelock'}[$interval]))\n+ sum(max_over_time(pg_locks_count{mode='accessexclusivelock'}[$interval]))",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Exclusive Locks",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 0,
+            "description": "These are the locks that are acquired without affecting any of the Read Operations.",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 16
+            },
+            "id": 10129,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "(delta(pg_locks_count[$interval]) - (delta(pg_locks_count{mode='sharerowexclusivelock'}[$interval]) \n+ delta(pg_locks_count{mode='share'}[$interval]) \n+ delta(pg_locks_count{mode='shareupdateexclusivelock'}[$interval])\n+ delta(pg_locks_count{mode='accessexclusivelock'}[$interval]))) or sum(delta(pg_locks_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "$interval",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "delta(pg_locks_count{mode='accessexclusivelock'}[$interval])",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(max_over_time(pg_locks_count[$interval])) - (sum(max_over_time(pg_locks_count{mode='sharerowexclusivelock'}[$interval]))\n+ sum(max_over_time(pg_locks_count{mode='shareupdateexclusivelock'}[$interval]))\n+ sum(max_over_time(pg_locks_count{mode='accessexclusivelock'}[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Other Locks",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 18
+            },
+            "id": 10120,
+            "panels": [],
+            "title": "AutoVacuum and Tuple Statistics",
+            "type": "row"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Total number of manual and auto vacuums across the database cluster",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 0,
+                "y": 19
+            },
+            "id": 10122,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(pg_stat_user_tables_autovacuum_count)",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "No. of Vacuum and Autovacuum",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Total number of manual and automatic analyze  jobs across the database cluster",
+            "format": "none",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 4,
+                "y": 19
+            },
+            "id": 10123,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(pg_stat_user_tables_autoanalyze_count) + sum(pg_stat_user_tables_analyze_count)",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "No. of Analyze and Autoanalyze",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "delta"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": 2,
+            "description": "Percentage of dead tuples in the database cluster.",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 8,
+                "y": 19
+            },
+            "id": 10124,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_n_dead_tup[$interval])) / (sum(delta(pg_stat_user_tables_n_dead_tup[$interval])) + sum(delta(pg_stat_user_tables_n_live_tup[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Dead Tuples",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Percentage of Tuples Inserted among Inserts, Updates and Deletes.",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 12,
+                "y": 19
+            },
+            "id": 10125,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_n_tup_ins[$interval])) / (sum(delta(pg_stat_user_tables_n_tup_ins[$interval])) + sum(delta(pg_stat_user_tables_n_tup_del[$interval])) + sum(delta(pg_stat_user_tables_n_tup_upd[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Tuples Inserted %",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Percentage of Tuples Deleted among Inserts, Updates and Deletes.",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 16,
+                "y": 19
+            },
+            "id": 10126,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_n_tup_del[$interval])) / (sum(delta(pg_stat_user_tables_n_tup_ins[$interval])) + sum(delta(pg_stat_user_tables_n_tup_del[$interval])) + sum(delta(pg_stat_user_tables_n_tup_upd[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Tuples Deleted %",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "cacheTimeout": null,
+            "colorBackground": false,
+            "colorValue": false,
+            "colors": [
+                "#299c46",
+                "rgba(237, 129, 40, 0.89)",
+                "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "Percentage of Tuples Updated among Inserts, Updates and Deletes.",
+            "format": "percentunit",
+            "gauge": {
+                "maxValue": 100,
+                "minValue": 0,
+                "show": false,
+                "thresholdLabels": false,
+                "thresholdMarkers": true
+            },
+            "gridPos": {
+                "h": 2,
+                "w": 4,
+                "x": 20,
+                "y": 19
+            },
+            "id": 10127,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+                {
+                    "name": "value to text",
+                    "value": 1
+                },
+                {
+                    "name": "range to text",
+                    "value": 2
+                }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+                {
+                    "from": "null",
+                    "text": "N/A",
+                    "to": "null"
+                }
+            ],
+            "sparkline": {
+                "fillColor": "rgba(31, 118, 189, 0.18)",
+                "full": false,
+                "lineColor": "rgb(31, 120, 193)",
+                "show": false
+            },
+            "tableColumn": "",
+            "targets": [
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_idx_scan[$interval]))/(sum(delta(pg_stat_user_tables_idx_scan[$interval])) + sum(delta(pg_stat_user_tables_seq_scan[$interval])))",
+                    "format": "time_series",
+                    "hide": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "B"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_autovacuum_count[$interval])) + sum(delta(pg_stat_user_tables_vacuum_count[$interval]))",
+                    "format": "time_series",
+                    "hide": true,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(delta(pg_stat_user_tables_n_tup_upd[$interval])) / (sum(delta(pg_stat_user_tables_n_tup_ins[$interval])) + sum(delta(pg_stat_user_tables_n_tup_del[$interval])) + sum(delta(pg_stat_user_tables_n_tup_upd[$interval])))",
+                    "format": "time_series",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "C"
+                }
+            ],
+            "thresholds": "",
+            "title": "Tuples Updated %",
+            "type": "singlestat",
+            "valueFontSize": "80%",
+            "valueMaps": [
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "null"
+                },
+                {
+                    "op": "=",
+                    "text": "0",
+                    "value": "0"
+                }
+            ],
+            "valueName": "current"
+        },
+        {
+            "collapsed": true,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 21
+            },
+            "id": 60,
+            "panels": [
+                {
+                    "content": "<table style=\"width:100%; border: 2px solid grey;\">\n  <tr><td></td><td></td><td></td><td></td></tr>\n  <tr><td> The maximum number of concurrent connections </td><td>${max_connections}</td><td> Shared memory buffers (bytes) </td><td>${shared_buffers}</td></tr>\n  <tr><td> The maximum memory to be used for query workspaces (bytes)</td><td>${work_mem}</td><td> The number of disk-page buffers in shared memory for WAL (bytes)</td><td>${wal_buffers}</td></tr>\n  <tr><td> The number of pages per write ahead log segment (bytes) </td><td>${wal_segment_size}</td><td>The maximum memory to be used for query workspaces (bytes)</td><td>${maintenance_work_mem}</td></tr>\n  <tr><td> The block size in the write ahead log </td><td>${block_size}</td><td>The maximum distance in log segments between automatic WAL checkpoints</td><td>${checkpoint_segments}</td></tr>\n  <tr><td> Time spent flushing dirty buffers during checkpoint, as fraction of checkpoint interval </td><td>${checkpoint_timeout}</td><td>The maximum number of simultaneously running WAL sender processes</td><td>${max_wal_senders}</td></tr>\n  <tr><td> The minimum size to shrink the WAL to (bytes)</td><td>${min_wal_size}</td><td>The WAL size that triggers a checkpoint (bytes)</td><td>${max_wal_size}</td></tr>\n  <tr><td> Compresses full-page writes written in WAL file </td><td>${wal_compression}</td><td>Maximum number of concurrent worker processes</td><td>${max_worker_processes}</td></tr>\n  <tr><td> The maximum number of parallel processes per executor node </td><td>${max_parallel_workers_per_gather}</td><td>The maximum number of parallel processes per executor node</td><td>${max_parallel_workers}</td></tr>\n  <tr><td> The default statistics target </td><td>${default_statistics_target}</td><td>The planner's estimate of the cost of a sequentially fetched disk page </td><td>${seq_page_cost}</td></tr>\n  <tr><td> The planner's estimate of the cost of a nonsequentially fetched disk page </td><td>${random_page_cost}</td><td>The planner's assumption about the size of the disk cache</td><td>${effective_cache_size}</td></tr>\n  <tr><td> Number of simultaneous requests that can be handled efficiently by the disk subsystem </td><td>${effective_io_concurrency}</td><td>Forces synchronization of updates to disk </td><td>${fsync}</td></tr>\n  <tr><td> Starts the autovacuum subprocess </td><td>${autovacuum}</td><td>Number of tuple inserts, updates, or deletes prior to analyze as a fraction of reltuples</td><td>${autovacuum_analyze_scale_factor}</td></tr>\n  <tr><td> Minimum number of tuple inserts, updates, or deletes prior to analyze </td><td>${autovacuum_analyze_threshold}</td><td>Number of tuple updates or deletes prior to vacuum as a fraction of reltuples</td><td>${autovacuum_vacuum_scale_factor}</td></tr>\n  <tr><td> Minimum number of tuple updates or deletes prior to vacuum </td><td>${autovacuum_vacuum_threshold}</td><td>Vacuum cost amount available before napping, for autovacuum </td><td>${autovacuum_vacuum_cost_limit}</td></tr>\n  <tr><td> Vacuum cost delay in milliseconds, for autovacuum (seconds) </td><td>${autovacuum_vacuum_cost_delay}</td><td> The maximum number of simultaneously running autovacuum worker processes </td><td>${autovacuum_max_workers}</td></tr>\n  <tr><td> Time to sleep between autovacuum runs (seconds) </td><td>${autovacuum_naptime}</td><td>Age at which to autovacuum a table to prevent transaction ID wraparound </td><td>${autovacuum_freeze_max_age}</td></tr>\n  <tr><td> The maximum memory to be used by each autovacuum worker process (bytes)</td><td>${autovacuum_work_mem}</td><td>Multixact age at which to autovacuum a table to prevent multixact wraparound</td><td>${autovacuum_multixact_freeze_max_age}</td></tr>\n  <tr><td> Start a subprocess to capture stderr output and/or csvlogs into log files </td><td>${logging_collector}</td><td>Sets the minimum execution time above which statements will be logged (seconds) </td><td>${log_min_duration_statement}</td></tr>\n  <tr><td> Logs the duration of each completed SQL statement </td><td>${log_duration}</td><td>Logs long lock waits </td><td>${log_lock_waits}</td></tr>\n  <tr><td></td><td></td><td></td><td></td></tr>\n</table>\n\n",
+                    "gridPos": {
+                        "h": 18,
+                        "w": 24,
+                        "x": 0,
+                        "y": 33
+                    },
+                    "id": 58,
+                    "links": [],
+                    "mode": "html",
+                    "title": "PostgreSQL Settings",
+                    "type": "text"
+                }
+            ],
+            "title": "Settings",
+            "type": "row"
+        },
+        {
+            "collapsed": true,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 22
+            },
+            "id": 88,
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "fill": 5,
+                    "gridPos": {
+                        "h": 8,
+                        "w": 12,
+                        "x": 0,
+                        "y": 34
+                    },
+                    "id": 90,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": true,
+                        "current": false,
+                        "hideEmpty": true,
+                        "hideZero": true,
+                        "max": true,
+                        "min": true,
+                        "show": true,
+                        "sort": "avg",
+                        "sortDesc": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "dimensions": {},
+                            "expr": "clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[$interval]) or \navg_over_time(node_cpu_average{instance=~\"$host\", mode!=\"total\", mode!=\"idle\"}[5m]))),100)",
+                            "expression": "",
+                            "format": "time_series",
+                            "groupBy": [
+                                {
+                                    "params": [
+                                        "$__interval"
+                                    ],
+                                    "type": "time"
+                                },
+                                {
+                                    "params": [
+                                        "null"
+                                    ],
+                                    "type": "fill"
+                                }
+                            ],
+                            "highResolution": false,
+                            "id": "",
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "{{mode}}",
+                            "metricName": "",
+                            "namespace": "",
+                            "orderByTime": "ASC",
+                            "period": "",
+                            "policy": "default",
+                            "refId": "A",
+                            "region": "default",
+                            "resultFormat": "time_series",
+                            "returnData": false,
+                            "select": [
+                                [
+                                    {
+                                        "params": [
+                                            "value"
+                                        ],
+                                        "type": "field"
+                                    },
+                                    {
+                                        "params": [],
+                                        "type": "mean"
+                                    }
+                                ]
+                            ],
+                            "statistics": [
+                                "Average"
+                            ],
+                            "tags": []
+                        },
+                        {
+                            "dimensions": {},
+                            "expr": "",
+                            "expression": "",
+                            "format": "time_series",
+                            "groupBy": [
+                                {
+                                    "params": [
+                                        "$__interval"
+                                    ],
+                                    "type": "time"
+                                },
+                                {
+                                    "params": [
+                                        "null"
+                                    ],
+                                    "type": "fill"
+                                }
+                            ],
+                            "hide": true,
+                            "highResolution": false,
+                            "id": "",
+                            "intervalFactor": 1,
+                            "metricName": "",
+                            "namespace": "",
+                            "orderByTime": "ASC",
+                            "period": "",
+                            "policy": "default",
+                            "refId": "B",
+                            "region": "default",
+                            "resultFormat": "time_series",
+                            "returnData": false,
+                            "select": [
+                                [
+                                    {
+                                        "params": [
+                                            "value"
+                                        ],
+                                        "type": "field"
+                                    },
+                                    {
+                                        "params": [],
+                                        "type": "mean"
+                                    }
+                                ]
+                            ],
+                            "statistics": [
+                                "Average"
+                            ],
+                            "tags": []
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "CPU Usage",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "format": "percent",
+                            "label": null,
+                            "logBase": 1,
+                            "max": "100",
+                            "min": "0",
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": false
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {
+                        "Max CPU Core Utilization": "#bf1b00"
+                    },
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "fill": 2,
+                    "gridPos": {
+                        "h": 8,
+                        "w": 12,
+                        "x": 12,
+                        "y": 34
+                    },
+                    "id": 92,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": true,
+                        "current": false,
+                        "max": true,
+                        "min": true,
+                        "show": true,
+                        "sort": "avg",
+                        "sortDesc": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "Max CPU Core Utilization",
+                            "lines": false,
+                            "pointradius": 1,
+                            "points": true,
+                            "yaxis": 2
+                        }
+                    ],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "(avg_over_time(node_procs_running{instance=\"$host\"}[$interval])-1) / scalar(count(node_cpu{mode=\"user\", instance=\"$host\"})) or (avg_over_time(node_procs_running{instance=\"$host\"}[5m])-1) / scalar(count(node_cpu{mode=\"user\", instance=\"$host\"}))",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Normalized CPU Load",
+                            "refId": "A"
+                        },
+                        {
+                            "expr": "clamp_max(max by () (sum  by (cpu) ( (clamp_max(rate(node_cpu{instance=\"$host\",mode!=\"idle\",mode!=\"iowait\"}[$interval]),1)) or (clamp_max(irate(node_cpu{instance=\"$host\",mode!=\"idle\",mode!=\"iowait\"}[5m]),1)) )),1)",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Max CPU Core Utilization",
+                            "refId": "B"
+                        },
+                        {
+                            "expr": "avg_over_time(node_procs_blocked{instance=\"$host\"}[$interval]) or avg_over_time(node_procs_blocked{instance=\"$host\"}[5m])",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "IO Load",
+                            "refId": "C"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "Saturation and Max Core Usage",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": "0",
+                            "show": true
+                        },
+                        {
+                            "format": "percentunit",
+                            "label": null,
+                            "logBase": 1,
+                            "max": "1",
+                            "min": "0",
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "fill": 2,
+                    "gridPos": {
+                        "h": 8,
+                        "w": 12,
+                        "x": 0,
+                        "y": 42
+                    },
+                    "id": 94,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": true,
+                        "current": false,
+                        "max": true,
+                        "min": true,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "Disk Writes (Page Out)",
+                            "transform": "negative-Y"
+                        },
+                        {
+                            "alias": "Total",
+                            "legend": false,
+                            "lines": false
+                        },
+                        {
+                            "alias": "Swap Out (Writes)",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Disk Reads (Page In)",
+                            "refId": "A"
+                        },
+                        {
+                            "expr": "(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Disk Writes (Page Out)",
+                            "refId": "B"
+                        },
+                        {
+                            "expr": "(rate(node_vmstat_pgpgin{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{instance=\"$host\"}[5m]) * 1024 ) + \n(rate(node_vmstat_pgpgout{instance=\"$host\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{instance=\"$host\"}[5m]) * 1024)",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Total",
+                            "refId": "C"
+                        },
+                        {
+                            "expr": "rate(node_vmstat_pswpin{instance=\"$host\"}[$interval]) * 4096 or irate(node_vmstat_pswpin{instance=\"$host\"}[5m]) * 4096",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Swap In (Reads)",
+                            "refId": "D"
+                        },
+                        {
+                            "expr": "rate(node_vmstat_pswpout{instance=\"$host\"}[$interval]) * 4096 or \nirate(node_vmstat_pswpout{instance=\"$host\"}[5m]) * 4096",
+                            "format": "time_series",
+                            "hide": false,
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Swap Out (Writes)",
+                            "refId": "E"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "Disk I/O and Swap Activity",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "format": "Bps",
+                            "label": "Page Out (-) / Page In (+)",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": false
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": "Prometheus",
+                    "decimals": 2,
+                    "fill": 2,
+                    "gridPos": {
+                        "h": 8,
+                        "w": 12,
+                        "x": 12,
+                        "y": 42
+                    },
+                    "id": 96,
+                    "legend": {
+                        "alignAsTable": true,
+                        "avg": true,
+                        "current": false,
+                        "max": true,
+                        "min": true,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 2,
+                    "links": [],
+                    "nullPointMode": "null",
+                    "percentage": false,
+                    "pointradius": 5,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [
+                        {
+                            "alias": "Outbound",
+                            "transform": "negative-Y"
+                        }
+                    ],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "sum(rate(node_network_receive_bytes{instance=\"$host\", device!=\"lo\"}[$interval])) or \nsum(irate(node_network_receive_bytes{instance=\"$host\", device!=\"lo\"}[5m])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[$interval])) or \nsum(max_over_time(rdsosmetrics_network_rx{instance=\"$host\"}[5m])) ",
+                            "format": "time_series",
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Inbound",
+                            "refId": "A"
+                        },
+                        {
+                            "expr": "sum(rate(node_network_transmit_bytes{instance=\"$host\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes{instance=\"$host\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{instance=\"$host\"}[5m]))",
+                            "format": "time_series",
+                            "interval": "$interval",
+                            "intervalFactor": 1,
+                            "legendFormat": "Outbound",
+                            "refId": "B"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "Network Traffic",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "format": "Bps",
+                            "label": "Outbound (-) / Inbound (+)",
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": false
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                }
+            ],
+            "title": "System Summary",
+            "type": "row"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 23
+            },
+            "id": 9998,
+            "panels": [],
+            "title": "Copyrights & Legal",
+            "type": "row"
+        },
+        {
+            "content": "<center>\n<p>MySQL and InnoDB are trademarks of Oracle Corp. Proudly running Percona Server. Copyright (c) 2006-2019 Percona LLC.</p>\n<div style='text-align:center;'>\n<a href='https://percona.com/terms-use' style='display: inline;'>Terms of Use</a> | \n<a href='https://percona.com/privacy-policy' style='display: inline;'>Privacy</a> | \n<a href='https://percona.com/copyright-policy' style='display: inline;'>Copyright</a> | \n<a href='https://percona.com/legal' style='display: inline;'>Legal</a>\n</div>\n</center>\n<hr>\n<link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css' />\n<script src='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js'>\n</script>\n<script>\nfunction bbb(){setTimeout(function (){window.cookieconsent.initialise({'palette': {'popup': {'background': '#eb6c44','text': '#ffffff'},'button': {'background': '#f5d948'}},'theme': 'classic','content': {'message': 'This site uses cookies and other tracking technologies to assist with navigation, analyze your use of our products and services, assist with promotional and marketing efforts, allow you to give feedback, and provide content from third parties. If you do not want to accept cookies, adjust your browser settings to deny cookies or exit this site.','dismiss': 'Allow cookies', 'link': 'Cookie Policy', 'href': 'https://www.percona.com/cookie-policy'}})},3000)};window.addEventListener('load',bbb());\n</script>\n",
+            "gridPos": {
+                "h": 3,
+                "w": 24,
+                "x": 0,
+                "y": 24
+            },
+            "id": 9999,
+            "links": [],
+            "mode": "html",
+            "title": "",
+            "transparent": true,
+            "type": "text"
+        }
+    ],
+    "refresh": "1m",
+    "schemaVersion": 16,
+    "style": "dark",
+    "tags": [
+        "Percona",
+        "PostgreSQL"
+    ],
+    "templating": {
+        "list": [
+            {
+                "auto": true,
+                "auto_count": 200,
+                "auto_min": "1s",
+                "current": {
+                    "text": "5m",
+                    "value": "5m"
+                },
+                "hide": 0,
+                "label": "Interval",
+                "name": "interval",
+                "options": [
+                    {
+                        "selected": false,
+                        "text": "auto",
+                        "value": "$__auto_interval_interval"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1s",
+                        "value": "1s"
+                    },
+                    {
+                        "selected": false,
+                        "text": "5s",
+                        "value": "5s"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    {
+                        "selected": true,
+                        "text": "5m",
+                        "value": "5m"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1h",
+                        "value": "1h"
+                    },
+                    {
+                        "selected": false,
+                        "text": "6h",
+                        "value": "6h"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1d",
+                        "value": "1d"
+                    }
+                ],
+                "query": "1s,5s,1m,5m,1h,6h,1d",
+                "refresh": 2,
+                "skipUrlSync": false,
+                "type": "interval"
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "PS_NODE-1",
+                    "value": "PS_NODE-1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 0,
+                "includeAll": false,
+                "label": "Host",
+                "multi": false,
+                "name": "host",
+                "options": [],
+                "query": "label_values(pg_up,instance)",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 1,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": ".*",
+                "current": {
+                    "tags": [],
+                    "text": "All",
+                    "value": [
+                        "$__all"
+                    ]
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 0,
+                "includeAll": true,
+                "label": "DB",
+                "multi": true,
+                "name": "db",
+                "options": [],
+                "query": "label_values(pg_stat_database_tup_fetched{instance=\"$host\",datname!~\"template.*|postgres\"},datname)",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "10.6",
+                    "value": "10.6"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "version",
+                "options": [],
+                "query": "label_values(pg_static,version)",
+                "refresh": 2,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 2,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "100",
+                    "value": "100"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_connections",
+                "options": [],
+                "query": "query_result(pg_settings_max_connections{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "134217728",
+                    "value": "134217728"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "shared_buffers",
+                "options": [],
+                "query": "query_result(pg_settings_shared_buffers_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "4194304",
+                    "value": "4194304"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "work_mem",
+                "options": [],
+                "query": "query_result(pg_settings_work_mem_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "4194304",
+                    "value": "4194304"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "wal_buffers",
+                "options": [],
+                "query": "query_result(pg_settings_wal_buffers_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "16777216",
+                    "value": "16777216"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "wal_segment_size",
+                "options": [],
+                "query": "query_result(pg_settings_wal_segment_size_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "67108864",
+                    "value": "67108864"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "maintenance_work_mem",
+                "options": [],
+                "query": "query_result(pg_settings_maintenance_work_mem_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "8192",
+                    "value": "8192"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "block_size",
+                "options": [],
+                "query": "query_result(pg_settings_block_size{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "isNone": true,
+                    "text": "None",
+                    "value": ""
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "checkpoint_segments",
+                "options": [],
+                "query": "query_result(pg_settings_checkpoint_segments{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "300",
+                    "value": "300"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "checkpoint_timeout",
+                "options": [],
+                "query": "query_result(pg_settings_checkpoint_timeout_seconds{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "100",
+                    "value": "100"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "default_statistics_target",
+                "options": [],
+                "query": "query_result(pg_settings_default_statistics_target{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "seq_page_cost",
+                "options": [],
+                "query": "query_result(pg_settings_seq_page_cost{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "4",
+                    "value": "4"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "random_page_cost",
+                "options": [],
+                "query": "query_result(pg_settings_random_page_cost{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "4294967296",
+                    "value": "4294967296"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "effective_cache_size",
+                "options": [],
+                "query": "query_result(pg_settings_effective_cache_size_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "effective_io_concurrency",
+                "options": [],
+                "query": "query_result(pg_settings_effective_io_concurrency{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "fsync",
+                "options": [],
+                "query": "query_result(pg_settings_fsync{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1",
+                    "value": "1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0.1",
+                    "value": "0.1"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_analyze_scale_factor",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_analyze_scale_factor{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "50",
+                    "value": "50"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_analyze_threshold",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_analyze_threshold{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0.2",
+                    "value": "0.2"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_vacuum_scale_factor",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_vacuum_scale_factor{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "50",
+                    "value": "50"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_vacuum_threshold",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_vacuum_threshold{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1557924714000",
+                    "value": "1557924714000"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_vacuum_cost_limit",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_vacuum_cost_limit{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0.02",
+                    "value": "0.02"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_vacuum_cost_delay",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_vacuum_cost_delay_seconds{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "3",
+                    "value": "3"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_max_workers",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_max_workers{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "60",
+                    "value": "60"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_naptime",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_naptime_seconds{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "200000000",
+                    "value": "200000000"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_freeze_max_age",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_freeze_max_age{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0",
+                    "value": "0"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "logging_collector",
+                "options": [],
+                "query": "query_result(pg_settings_logging_collector{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1557924714000",
+                    "value": "1557924714000"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "log_min_duration_statement",
+                "options": [],
+                "query": "query_result(pg_settings_log_min_duration_statement_seconds{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0",
+                    "value": "0"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "log_duration",
+                "options": [],
+                "query": "query_result(pg_settings_log_duration{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0",
+                    "value": "0"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "log_lock_waits",
+                "options": [],
+                "query": "query_result(pg_settings_log_lock_waits{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "10",
+                    "value": "10"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_wal_senders",
+                "options": [],
+                "query": "query_result(pg_settings_max_wal_senders{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1073741824",
+                    "value": "1073741824"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_wal_size",
+                "options": [],
+                "query": "query_result(pg_settings_max_wal_size_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "83886080",
+                    "value": "83886080"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "min_wal_size",
+                "options": [],
+                "query": "query_result(pg_settings_min_wal_size_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "0",
+                    "value": "0"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "wal_compression",
+                "options": [],
+                "query": "query_result(pg_settings_wal_compression{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "8",
+                    "value": "8"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_worker_processes",
+                "options": [],
+                "query": "query_result(pg_settings_max_worker_processes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "2",
+                    "value": "2"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_parallel_workers_per_gather",
+                "options": [],
+                "query": "query_result(pg_settings_max_parallel_workers_per_gather{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "2",
+                    "value": "2"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "max_parallel_workers",
+                "options": [],
+                "query": "query_result(pg_settings_max_parallel_workers_per_gather{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "1557924714000",
+                    "value": "1557924714000"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_work_mem",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_work_mem_bytes{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "400000000",
+                    "value": "400000000"
+                },
+                "datasource": "Prometheus",
+                "definition": "",
+                "hide": 2,
+                "includeAll": false,
+                "label": null,
+                "multi": false,
+                "name": "autovacuum_multixact_freeze_max_age",
+                "options": [],
+                "query": "query_result(pg_settings_autovacuum_multixact_freeze_max_age{instance=\"$host\",job=\"postgresql\"})",
+                "refresh": 1,
+                "regex": "/ ([0-9\\.]+)/",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            }
+        ]
+    },
+    "time": {
+        "from": "now-12h",
+        "to": "now"
+    },
+    "timepicker": {
+        "hidden": false,
+        "refresh_intervals": [
+            "5s",
+            "10s",
+            "30s",
+            "1m",
+            "5m",
+            "15m",
+            "30m",
+            "1h",
+            "2h",
+            "1d"
+        ],
+        "time_options": [
+            "5m",
+            "15m",
+            "1h",
+            "6h",
+            "12h",
+            "24h",
+            "2d",
+            "7d",
+            "30d"
+        ]
+    },
+    "timezone": "browser",
+    "title": "PostgreSQL Activity",
+    "uid": "IvhES05ikkavi",
+    "version": 339
+}
