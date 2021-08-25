@@ -5,23 +5,37 @@ pmm_server="172.17.0.2"
 user_pass="admin:admin"
 folderName="General"
 
+tmpDashList=()
+
 if [[ $# -eq 0 ]]; then
     echo " * No arguments are supplied. Default values will be used."
-    echo " * Usage: import-dashboard-grafana-cloud  [FolderName] [<dashboardId> <dashboardId> ... ]"
-    echo " * Dashboard(s) (${dashboards[@]}) will be uploaded into ${folderName} folder"
+    echo " * Usage: import-dashboard-grafana-cloud  [-u credential] [-s pmmServerIp] [-f folderName] [-d dashboardId1] [-d dashboardId2] ... "
+    echo "    -u set PMM server credential in format user:password"
+    echo "    -s specify PMM server IP"
+    echo "    -f upload into Grafana folder name. It's used General forlder by default"
+    echo "    -d use dashboard ID for processing"
+    echo -e ""
 else
-    if [[ $1 =~ ^[0-9]+$ ]]; then
-        dashboards=( $@ )
-        echo " * First argument isn't a folder name. $# dashbaord(s) ($@) will be uploaded into General folder."
-        echo " * Usage: import-dashboard-grafana-cloud  [FolderName] [<dashboardId> <dashboardId> ... ]"
-    else
-        folderName="$1"
-        if [[ $# > 1 ]]; then
-            dashboards=( ${@/$folderName} )
-        fi
-        echo " * Dashbaord(s) (${dashboards[@]}) will be uploaded into $1 folder."
+    while getopts u:s:f:d: flag
+    do
+        case "${flag}" in
+            u) user_pass=${OPTARG};;
+            s) pmm_server=${OPTARG};;
+            f) folderName=${OPTARG};;
+            d) tmpDashList+=("$OPTARG");;
+        esac
+    done
+
+    if ((${#tmpDashList[@]})); then
+        dashboards=();
+        dashboards=("${tmpDashList[@]}");
     fi
+
 fi
+
+echo " * PMM Credential: ${user_pass}";
+echo " * PMM Server: ${pmm_server}";
+echo " * Dashboard(s) (${dashboards[@]}) will be uploaded into ${folderName} folder"
 
 if ! [[ ${folderName} == "General" ]]; then 
     folderId=$(curl -s -k -u ${user_pass} https://${pmm_server}/graph/api/folders | python -m json.tool | grep -B1 ${folderName} | head -1 | cut -d":" -f2 | cut -d"," -f1 | sed 's/ //g')
